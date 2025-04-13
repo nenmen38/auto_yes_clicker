@@ -24,6 +24,9 @@ PyAutoGUI를 사용해 YBM 온라인 강의 중 체크포인트에서 '예' 버�
 | `sys`       | 실행 환경에 따라 경로 처리 (.exe 대응)     |
 | `OpenCV`    | 이미지 비교 알고리즘 (pyautogui 내부 사용) |
 
+```bash
+pyinstaller --onefile --add-data "yes.png;." --add-data "exit.png;." clicker.py
+
 ## EN
 
 Auto-clicker that detects and clicks '(네)Yes' buttons during online lecture(YBM) checkpoints using PyAutoGUI
@@ -50,3 +53,6 @@ Auto-clicker that detects and clicks '(네)Yes' buttons during online lecture(YB
 | `os`        | File path management                   |
 | `sys`       | Environment-aware path handling        |
 | `OpenCV`    | (Used internally by pyautogui)         |
+
+```bash
+pyinstaller --onefile --add-data "yes.png;." --add-data "exit.png;." clicker.py
