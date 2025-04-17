@@ -3,10 +3,10 @@ import sys
 import os
 import time
 
-if hasattr(sys, '_MEIPASS'): #exe 실행 시경로
-    base_path = sys._MEIPASS
-else: #py 실행 시 경로
-    base_path = os.path.dirname(__file__)
+if getattr(sys, 'frozen', False):  # exe로 실행 시
+    base_path = os.path.dirname(sys.executable)
+else:  # py로 실행 시
+    base_path = os.path.dirname(os.path.abspath(__file__))
 
 #문제점 다른 환경 : 화이트모드, 맥 다른 윈도우 버전
 resource_dir = os.path.join(base_path, "resources")
@@ -33,7 +33,7 @@ with open(maximum_count_path, "r") as f:
     
 try:
     check_time = int(check_time_str)
-    if check_time >= 0:
+    if check_time <= 0:
         raise ValueError("■ 경고 : 감지 주기는 1초 이상이어야 합니다. ■")
 except ValueError:
     print(f"■ check_time.txt의 값({check_time_str})이 유효하지 않아 기본값 3초로 설정합니다. ■")
