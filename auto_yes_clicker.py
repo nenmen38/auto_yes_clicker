@@ -2,7 +2,7 @@ import pyautogui
 import time
 import os
 import sys
-#test
+
 if hasattr(sys, '_MEIPASS'):
     base_path = sys._MEIPASS #exe 실행 시 경로
 else:
