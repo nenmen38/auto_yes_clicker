@@ -8,7 +8,6 @@ if hasattr(sys, '_MEIPASS'): #exe 실행 시경로
 else: #py 실행 시 경로
     base_path = os.path.dirname(__file__)
 
-#문제점 다른 환경 : 화이트모드, 맥 다른 윈도우 버전
 resource_dir = os.path.join(base_path, "resources")
 
 if not os.path.exists(resource_dir):
