@@ -8,6 +8,7 @@ if hasattr(sys, '_MEIPASS'): #exe 실행 시경로
 else: #py 실행 시 경로
     base_path = os.path.dirname(__file__)
 
+#문제점 다른 환경 : 화이트모드, 맥 다른 윈도우 버전
 resource_dir = os.path.join(base_path, "resources")
 
 if not os.path.exists(resource_dir):
@@ -32,16 +33,20 @@ with open(maximum_count_path, "r") as f:
     
 try:
     check_time = int(check_time_str)
+    if check_time >= 0:
+        raise ValueError("■ 경고 : 감지 주기는 1초 이상이어야 합니다. ■")
 except ValueError:
-    print(f"■ check_time.txt의 값({check_time_str})을 인식할 수 없습니다. 기본값 3으로 설정합니다. ■")
+    print(f"■ check_time.txt의 값({check_time_str})이 유효하지 않아 기본값 3초로 설정합니다. ■")
     check_time = 3
     with open(check_time_path, "w") as f:
         f.write("3")
         
 try:
     maximum_count = int(maximum_count_str)
+    if maximum_count <= 0:
+        raise ValueError("■ 경고 : 최소 달성 횟수는 1회 이상이어야 합니다. ■")
 except ValueError:
-        print(f"■ maximum_count.txt의 값({maximum_count_str})을 인식할 수 없습니다. 기본값 5으로 설정합니다. ■")
+        print(f"■ maximum_count.txt의 값({maximum_count_str})이 유효하지 않아 기본값 5회로 설정합니다. ■")
         maximum_count = 5
         with open(maximum_count_path, "w") as f:
             f.write("5")
