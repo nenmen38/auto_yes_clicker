@@ -36,7 +36,7 @@ pyinstaller --onefile --distpath . auto_yes_clicker.py
 
 ## 팁
 
-`auto_yes_clicker.py` 또는 `.exe` 실행 파일은 `resources` 폴더와 **같은 디렉토리에 위치해야** 합니다.  
+`auto_yes_clicker.py` 또는 `.exe` 실행 파일은 `resources` 폴더와 **같은 디렉터리에 위치해야** 합니다.  
 이 폴더 안의 이미지 및 설정 파일을 프로그램이 직접 불러오기 때문입니다.
 
 ## EN
